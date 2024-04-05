@@ -1,6 +1,6 @@
 {
   "name": "csv-next",
-  "version": "0.1.0",
+  "version": "1.0.1",
   "private": true,
   "scripts": {
     "webpack:dev": "webpack serve --mode development",
@@ -11,17 +11,23 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "assert": "^2.1.0",
+    "constants-browserify": "^1.0.0",
     "fs-extra": "^11.2.0",
+    "graceful-fs": "^4.2.11",
     "next": "14.1.4",
     "path-browserify": "^1.0.1",
     "prop-types": "^15.8.1",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "stream-browserify": "^3.0.0",
+    "util": "^0.12.5"
   },
   "devDependencies": {
     "@babel/core": "^7.24.4",
     "@babel/preset-env": "^7.24.4",
     "@babel/preset-react": "^7.24.1",
+    "@types/body-parser": "^1.19.5",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
@@ -35,5 +41,10 @@
     "webpack": "^5.91.0",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^5.0.4"
+  },
+  "browser": {
+    "fs": false,
+    "path": false,
+    "util": false
   }
 }

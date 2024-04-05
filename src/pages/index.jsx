@@ -1,8 +1,6 @@
-// ChatGPT
-
 import fs from 'fs-extra';
 import Head from 'next/head';
-import Home from '../src/components/Home';
+import Home from '../components/Home.jsx';
 
 export default function HomePage({ rows }) {
   return (

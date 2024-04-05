@@ -2,7 +2,7 @@
 const path = require("path");
 
 module.exports = {
-  entry: "./src/pages/index.js",
+  entry: "./src/pages/index.jsx",
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "bundle.js",
@@ -11,7 +11,7 @@ module.exports = {
   module: {
     rules: [
         {
-            test: /\.js$/,
+            test: /\.(js|jsx)$/,
             exclude: /node_modules/,
             use: {
               loader: 'babel-loader',
@@ -23,13 +23,26 @@ module.exports = {
     ],
   },
   devServer: {
-    contentBase: "./dist",
     hot: true,
     historyApiFallback: true,
+    static: {
+        directory: path.resolve(__dirname, 'public'),
+      },
   },
   resolve: {
     fallback: {
-      "path": require.resolve("path-browserify")
-    }
-  }
+      "path": require.resolve("path-browserify"),
+      "fs": false,
+      "util": false,
+      "assert": false,
+      "stream": false,
+      "constants": false
+    },
+    alias: {
+        '@components': path.resolve(__dirname, 'src/components'),
+      },
+  },
+  stats: {
+    errorDetails: true
+}
 };
