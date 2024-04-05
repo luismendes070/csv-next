@@ -1,10 +1,12 @@
 /** @type {import('next').NextConfig} */
 // next.config.js
+// next.config.mjs
 const nextConfig = {
     experimental: {
       forceSwcTransforms: true,
     },
   };
   
-  module.exports = nextConfig;
+  export default nextConfig;
+  
   
