@@ -1,13 +1,17 @@
 // ChatGPT
 
-import fs from 'fs-extra';
+// import fs from 'fs-extra';
 import Head from 'next/head';
 
 export async function getStaticProps() {
   const filename = './public/teste.csv';
 
   try {
-    const data = await fs.readFile(filename, 'utf8');
+    const data = await fetch('https://menn-test-2024.vercel.app/')
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error('Error:', error));
+  
     const lines = data.trim().split('\n');
 
     const rows = lines.map(line => {
